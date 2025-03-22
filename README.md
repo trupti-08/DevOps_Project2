@@ -152,7 +152,6 @@ Install Terraform:[Terraform_Install.sh]()
 
 - Verify that Jenkins pipeline triggers and executes automatically.
 
-- Ensure Kubernetes deployment and NodePort service on port 30008 is active.
 
 
 
