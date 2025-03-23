@@ -1,7 +1,4 @@
 [K8_master]
 
 
-[K8_slave1]
-
-
-[K8_slave2]
+[K8_slaves]
