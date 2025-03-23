@@ -44,11 +44,11 @@ GitHub Repo: [website.git](https://github.com/hshar/website)
 
 Connect to the instance using SSH.
 
-Install Terraform:[Terraform_Install.sh]()
+Install Terraform:[Terraform_Install.sh](Terraform_Install.sh)
 
 **3️⃣ Run Terraform Script to Create Other Three Instances**
 
-- Create a Terraform script [main.tf]() to provision:
+- Create a Terraform script [main.tf](Terraform/main.tf) to provision:
 
     - 3 additional EC2 instances.
 
@@ -64,31 +64,32 @@ Install Terraform:[Terraform_Install.sh]()
 
 **4️⃣ Install Ansible on Machine-1 (Main)**
 
-- Install Ansible:[Ansible_Install.sh]()
+- Install Ansible:[Ansible_Install.sh](ansible_install.sh)
 
 **5️⃣ Paste Private IP Addresses of Slaves in the Hosts File**
 
 - Edit the Ansible inventory file: sudo nano /etc/ansible/hosts
   
-  [Ansible_Inventory]()
+  [Ansible_Inventory](ansible/Ansible_Inventory)
 
 **6️⃣ Create Three Scripts for Installing Required Tools on Machines**
 
 - Create the following scripts:
 
-  - [jenkins_install.sh]() → Install Jenkins and Java on Worker1.
+  - [jenkins_install.sh](ansible/script_files/jenkins_install.sh) → Install Jenkins and Java on Worker1.
 
-  - [docker_k8_install.sh]() → Install Docker and Kubernetes on Worker2 and Worker4.
+  - [docker_k8_install.sh](ansible/script_files/docker_k8_install.sh) → Install Docker and Kubernetes on Worker2 and Worker4.
 
-  - [install_java_docker_k8s.sh]() → Install Java, Docker, and Kubernetes on Worker3.
+  - [install_java_docker_k8s.sh](ansible/script_files/install_java_docker_k8s.sh) → Install Java, Docker, and Kubernetes on Worker3.
 
 **7️⃣ Create Ansible Playbooks to Run These Scripts**
 
-- Create playbooks [ansible-playbook.yml]() to execute the installation scripts:
+- Create playbooks [ansible-playbook.yml](ansible/ansible-playbook.yml) to execute the installation scripts:
 
 - Run the playbook:
 
   - ansible-playbook -i /etc/ansible/hosts ansible-playbook.yml
+    
 **8️⃣ Configure Kubernetes Slaves on Machine-3**
 
 - Initialize Kubernetes master on Machine-3:
@@ -137,6 +138,16 @@ Install Terraform:[Terraform_Install.sh]()
 - Commit and push changes to the repository.
 
 **1️⃣4️⃣ Create Jenkins Pipeline to Automate Tasks**
+
+- Create a Jenkinsfile to perform the following:
+
+  - Checkout code from GitHub.
+
+  - Build Docker image and push to Docker Hub.
+
+  - Deploy to Kubernetes.
+
+    [jenkinsfile(jenkins/jenkinsfile)]
 
 **1️⃣5️⃣ Automate Pipeline Using GitHub Webhooks**
 
