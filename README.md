@@ -76,11 +76,11 @@ Install Terraform:[Terraform_Install.sh](Terraform_Install.sh)
 
 - Create the following scripts:
 
-  - [jenkins_install.sh](ansible/script_files/jenkins_install.sh) → Install Jenkins and Java on Worker1.
+  - [jenkins_install.sh](ansible/script_files/jenkins_java_install.sh) → Install Jenkins and Java on Worker1.
 
-  - [docker_k8_install.sh](ansible/script_files/docker_k8_install.sh) → Install Docker and Kubernetes on Worker2 and Worker4.
+  - [docker_k8_install.sh](ansible/script_files/docker_k8_install.sh) → Install Docker and Kubernetes on Worker3 and Worker4.
 
-  - [install_java_docker_k8s.sh](ansible/script_files/install_java_docker_k8s.sh) → Install Java, Docker, and Kubernetes on Worker3.
+  - [install_java_docker_k8s.sh](ansible/script_files/install_java_docker_k8.sh) → Install Java, Docker, and Kubernetes on Worker2.
 
 **7️⃣ Create Ansible Playbooks to Run These Scripts**
 
