@@ -90,9 +90,9 @@ Install Terraform:[Terraform_Install.sh](Terraform_Install.sh)
 
   - ansible-playbook -i /etc/ansible/hosts ansible-playbook.yml
     
-**8️⃣ Configure Kubernetes Slaves on Machine-3**
+**8️⃣ Configure Kubernetes Slaves on Slave_Machines**
 
-- Initialize Kubernetes master on Machine-3:
+- Initialize Kubernetes master on Machine-2:
 
   - sudo kubeadm init
 
