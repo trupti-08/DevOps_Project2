@@ -12,9 +12,20 @@ cd .ssh
 ls
 sudo nano authorized_key
 
-#Paste the Private IP Addresses of Slaves in the hosts File using the below-given commands of Machine-1 (Main)
+# Paste the Private IP Addresses of Slaves in the hosts File using the below-given commands of Machine-1 (Main)
 # Refer Ansible_Inventory file
 sudo nano /etc/ansible/hosts
 
-#to connect master and slave node
+# to connect master and slave node
 ansible -m ping all
+
+# create scripts for installation - refer script_commands_files
+sudo nano jenkins_java_install.sh
+sudo nano install_java_docker_k8.sh
+sudo nano docker_k8_install.sh
+
+# create ansible playbook refer ansible_playbook.yml
+sudo nano ansible_playbook.yml
+
+# execute playbook
+ansible-playbook ansible_playbook.yml
