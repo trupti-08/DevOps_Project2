@@ -1,1 +1,15 @@
+# Configure the AWS Settings for running the main.tf file using the below-given command: 
+aws configure
+
+#Create terraform script
+sudo nano main.tf
+
+# To initialize terraform:
+terraform init
+
+#Plan the Configuration using the below-given command:
+terraform plan
+
+#Apply the Script to create the infrastructure:
+terraform apply
 
