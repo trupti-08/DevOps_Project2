@@ -22,9 +22,9 @@ pipeline {
                 label 'Kubernetes-Master'
             }
             steps {
-                sh 'sudo docker build /home/ubuntu/jenkins/workspace/Testpipeline -t trupti08/proj2'
+                sh 'sudo docker build /home/ubuntu/jenkins/workspace/Testpipeline -t tdesai08/proj2'
                 sh 'sudo echo $DOCKERHUB_CREDENTIALS_PSW | sudo docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
-                sh 'sudo docker push trupti08/proj2'
+                sh 'sudo docker push tdesai08/proj2'
             }
         }
     }
