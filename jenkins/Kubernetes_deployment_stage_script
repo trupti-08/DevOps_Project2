@@ -1,0 +1,41 @@
+pipeline {
+    agent none
+    environment {
+        DOCKERHUB_CREDENTIALS=credentials('......')
+    }
+    stages {
+        stage('Hello') {
+            steps {
+                echo 'Hello World'
+            }
+        }
+        stage('Git') {
+            agent {
+                label 'Kubernetes-Master'
+            }
+            steps {
+                git 'https://github.com/trupti-08/website.git'
+            }
+        }
+        stage('Docker') {
+            agent {
+                label 'Kubernetes-Master'
+            }
+            steps {
+                sh 'sudo docker build /home/ubuntu/jenkins/workspace/Testpipeline -t tdesai08/proj2'
+                sh 'sudo echo $DOCKERHUB_CREDENTIALS_PSW | sudo docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+                sh 'sudo docker push tdesai/proj2'
+            }
+        }
+        stage('K8s') {
+            agent {
+                label 'Kubernetes-Master'
+            }
+            steps {
+                sh 'kubectl delete deploy nginx-deployment'
+                sh 'kubectl apply -f deployment.yaml'
+                sh 'kubectl apply -f service.yaml'
+            }
+        }
+    }
+}
