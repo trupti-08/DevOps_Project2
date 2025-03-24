@@ -1,0 +1,20 @@
+# Create ssh-key
+ssh-keygen
+
+# go inside ssh folder
+cd .ssh
+
+# copy key
+cat id_ed25519.pub
+
+# go inside ssh folder of slave nodes open authorized_key & paste ssh_key created on master
+cd .ssh
+ls
+sudo nano authorized_key
+
+#Paste the Private IP Addresses of Slaves in the hosts File using the below-given commands of Machine-1 (Main)
+# Refer Ansible_Inventory file
+sudo nano /etc/ansible/hosts
+
+#to connect master and slave node
+ansible -m ping all
